@@ -27,9 +27,17 @@ def add_user(postUser : UsersSchema, db: session = Depends(get_session())) -> Us
 
 @router.put("/{users_id}") 
 def add_user(postUser : UsersSchema, users_id, db: session = Depends(get_session())) -> UsersSchema:
-        return db.insert(UsersModel).where(UsersModel.id == users_id).values(UsersModel.password==postUser.password, 
+        db.insert(UsersModel).where(UsersModel.id == users_id).values(UsersModel.password==postUser.password, 
             UsersModel.age==postUser.age, UsersModel.weight==postUser.weight, UsersModel.height==postUser.height, UsersModel.goals==postUser.goals)
+        db.commit()
+        db.refresh()
+        db.close()
+        return postUser
 
 @router.delete("/{users_id}") 
 def delete_user(users_id, db: session = Depends(get_session())) -> UsersSchema:
-        return db.delete(UsersModel).where(UsersModel.id == users_id)
+        db.delete(UsersModel).where(UsersModel.id == users_id)
+        db.commit()
+        db.refresh()
+        db.close()
+        return "user with {users_id} is deleted"

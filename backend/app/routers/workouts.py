@@ -27,9 +27,17 @@ def add_user(postWorkout : WorkoutsSchema, db: session = Depends(get_session()))
 
 @router.put("/{workouts_id}") 
 def add_user(postWorkout : WorkoutsSchema, workouts_id, db: session = Depends(get_session())) -> WorkoutsSchema:
-        return db.insert(WorkoutsModel).where(WorkoutsModel.id == workouts_id).values(WorkoutsModel.plan_name==postWorkout.plan_name, 
+        db.insert(WorkoutsModel).where(WorkoutsModel.id == workouts_id).values(WorkoutsModel.plan_name==postWorkout.plan_name, 
             WorkoutsModel.date_time==postWorkout.date_time, WorkoutsModel.exercises==postWorkout.exercises, WorkoutsModel.duration==postWorkout.duration)
+        db.commit()
+        db.refresh()
+        db.close()
+        return postWorkout
 
 @router.delete("/{workouts_id}") 
 def delete_user(workouts_id, db: session = Depends(get_session())) -> WorkoutsSchema:
-        return db.delete(WorkoutsModel).where(WorkoutsModel.id == workouts_id)
+        db.delete(WorkoutsModel).where(WorkoutsModel.id == workouts_id)
+        db.commit()
+        db.refresh()
+        db.close()
+        return "workout with {workouts_id} is deleted"

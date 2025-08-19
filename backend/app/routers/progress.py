@@ -27,9 +27,17 @@ def add_progress(postProgress : ProgressSchema, db: session = Depends(get_sessio
 
 @router.put("/{progress_id}") 
 def add_progress(postProgress : ProgressSchema, progress_id, db: session = Depends(get_session())) -> ProgressSchema:
-        return db.insert(ProgressModel).where(ProgressModel.id == progress_id).values(ProgressModel.sets==postProgress.sets, 
+        db.insert(ProgressModel).where(ProgressModel.id == progress_id).values(ProgressModel.sets==postProgress.sets, 
             ProgressModel.reps==postProgress.reps, ProgressModel.weight==postProgress.weight, ProgressModel.notes==postProgress.notes)
+        db.commit()
+        db.refresh()
+        db.close()
+        return postProgress
 
 @router.delete("/{progress_id}") 
 def delete_progress(progress_id, db: session = Depends(get_session())) -> ProgressSchema:
-        return db.delete(ProgressModel).where(ProgressModel.id == progress_id)
+        db.delete(ProgressModel).where(ProgressModel.id == progress_id)
+        db.commit()
+        db.refresh()
+        db.close()
+        return "progress with {progress_id} is deleted"
