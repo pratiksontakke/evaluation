@@ -4,6 +4,9 @@ from backend.app.routers.nutritions import router as nutrition_router
 from backend.app.routers.progress import router as progress_router
 from backend.app.routers.users import router as users_router
 from backend.app.routers.workouts import router as workouts_router
+from backend.app.routers.chat import router as chat_router
+from backend.app.routers.exercises import router as exercises_router
+from backend.app.routers.workout_plans import router as workout_plans_router
 
 app = FastAPI()
 
