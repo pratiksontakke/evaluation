@@ -3,6 +3,6 @@ uvicorn
 sqlalchemy
 pydantic
 chromadb
-sentence-transformers
-openai
+langchain
+langchain-google-genai
 pydantic-settings

@@ -1,0 +1,42 @@
+{
+    "exercises": [
+      {
+        "name": "Push-up",
+        "category": "Strength",
+        "equipment": "None",
+        "difficulty": "Beginner",
+        "instructions": "Start in a plank position. Lower your body until your chest nearly touches the floor. Push back up to the starting position.",
+        "target_muscles": "Chest, Shoulders, Triceps"
+      },
+      {
+        "name": "Squat",
+        "category": "Strength",
+        "equipment": "None",
+        "difficulty": "Beginner",
+        "instructions": "Stand with feet shoulder-width apart. Lower your hips as if sitting in a chair, keeping your chest up and back straight. Return to the starting position.",
+        "target_muscles": "Quadriceps, Glutes, Hamstrings"
+      },
+      {
+        "name": "Plank",
+        "category": "Core",
+        "equipment": "None",
+        "difficulty": "Beginner",
+        "instructions": "Hold a push-up position, with your body forming a straight line from head to heels. Engage your core and hold.",
+        "target_muscles": "Abs, Obliques, Lower Back"
+      }
+    ],
+    "nutrition": [
+      {
+        "topic": "Protein",
+        "info": "Protein is essential for muscle repair and growth. Good sources include chicken, beef, fish, eggs, dairy, and legumes. Aim for 1.6-2.2 grams of protein per kilogram of body weight for muscle building."
+      },
+      {
+        "topic": "Carbohydrates",
+        "info": "Carbohydrates are the body's main source of energy. Complex carbs like oats, brown rice, and sweet potatoes provide sustained energy for workouts."
+      },
+      {
+        "topic": "Hydration",
+        "info": "Staying hydrated is crucial for performance and recovery. Drink at least 8-10 glasses of water a day, and more if you are active. Dehydration can lead to decreased strength and fatigue."
+      }
+    ]
+  }
