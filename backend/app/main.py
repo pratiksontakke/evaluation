@@ -1,4 +1,4 @@
-from fastapi import APIRouter, FastAPI
+from fastapi import FastAPI
 from backend.app.db.database import create_db_and_tables
 from backend.app.routers.nutritions import router as nutrition_router
 from backend.app.routers.progress import router as progress_router
@@ -18,7 +18,7 @@ def on_startup():
 def home():
     return ("Hi working fine here")
 
-app.include_router(nutrition_router, prefix="/nutrition");
+app.include_router(nutrition_router, prefix="/nutritions");
 app.include_router(users_router, prefix="/users");
 app.include_router(progress_router, prefix="/progress");
 app.include_router(workouts_router, prefix="/workouts");
